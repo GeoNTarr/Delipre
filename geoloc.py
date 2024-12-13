@@ -1,6 +1,4 @@
 from geopy.geocoders import Nominatim
-import osmnx as ox
-import networkx as nx
 import requests
 from bs4 import BeautifulSoup
 import re 
@@ -30,7 +28,6 @@ def get_route_info(start_coords, end_coords):
         s = i.text
         nums = re.findall(r"[0-9\,]+", s)
 
-        print(nums)
         if len(nums) == 2:
             sm += int(nums[0]) * 60 + int(nums[1])
         elif len(nums) == 1:
@@ -82,7 +79,7 @@ for end_location in loactions_test:
     location = loc.geocode(latitude + "," + longitude)
     
     print(location)
-    # Ссылка на Яндекс Карты, которая ставит мекту на координаты конечной точки
+    # Ссылка на Яндекс Карты, которая ставит метку на координаты конечной точки
     url = f"https://yandex.ru/maps/?ll={longitude},{latitude}&z=10&pt={longitude},{latitude},pm2bl"
     print(url)
 
