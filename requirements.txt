@@ -4,3 +4,4 @@ aiogram
 osmnx
 scikit-learn
 bs4
+python-decouple
